@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+  <defs>
+    <!-- Core sphere gradient -->
+    <radialGradient id="core" cx="42%" cy="38%" r="62%">
+      <stop offset="0%"  stop-color="#0B0C1A"/>
+      <stop offset="42%" stop-color="#1A1760"/>
+      <stop offset="72%" stop-color="#4E35E6"/>
+      <stop offset="100%" stop-color="#A33AF2"/>
+    </radialGradient>
+
+    <!-- Rim glow gradient -->
+    <radialGradient id="rim" cx="52%" cy="56%" r="58%">
+      <stop offset="62%" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="82%" stop-color="#B8A9FF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#8B79FF" stop-opacity="0.75"/>
+    </radialGradient>
+
+    <!-- Subtle highlight at upper-right -->
+    <radialGradient id="highlight" cx="70%" cy="28%" r="40%">
+      <stop offset="0%" stop-color="#E9E5FF" stop-opacity="0.42"/>
+      <stop offset="35%" stop-color="#C9BFFF" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+
+    <!-- Outer glow filter -->
+    <filter id="outerGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="
+        1 0 0 0 0
+        0 1 0 0 0
+        0 0 1 0 0
+        0 0 0 0.55 0" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Soft edge bloom -->
+    <filter id="softBloom" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Transparent background by default (good for icons) -->
+  <g filter="url(#outerGlow)">
+    <!-- Main sphere -->
+    <circle cx="256" cy="256" r="170" fill="url(#core)" />
+
+    <!-- Rim glow layer -->
+    <circle cx="256" cy="256" r="178" fill="url(#rim)" filter="url(#softBloom)"/>
+
+    <!-- Upper-right highlight -->
+    <circle cx="256" cy="256" r="170" fill="url(#highlight)"/>
+  </g>
+</svg>
