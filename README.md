@@ -5,6 +5,8 @@
 Nebulix v1 was an early mechanics test and has now been fully burned.
 
 NBX v2 is a clean Base-native ERC-20 with no taxes, fixed supply, and standard OpenZeppelin implementation.
+NBX v2 has no token taxes.
+Trading uses standard Uniswap v3 pool fees (0.30%)
 
 Stage 0 is focused on liquidity behavior, price discovery, and real trading tests — not growth or promotion.
 
