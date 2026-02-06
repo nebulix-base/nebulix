@@ -1,5 +1,8 @@
 # Nebulix (NBX)
 
+> ⚠️ Status: Stage 0 — Experimental, low-liquidity testing phase  
+> See [STAGE_0.md](./STAGE_0.md) for details.
+
 ## Status Update (V1 → V2)
 
 Nebulix v1 was an early mechanics test and has now been fully burned.
